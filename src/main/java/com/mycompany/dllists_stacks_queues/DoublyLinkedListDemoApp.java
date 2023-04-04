@@ -40,5 +40,7 @@ public class DoublyLinkedListDemoApp {
       
       System.out.print("List in reverse order: ");
       numList.printRevList();
+      
+      //find min() and max()
    }
 }
