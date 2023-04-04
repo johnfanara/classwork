@@ -20,6 +20,7 @@ class Node {
 public class DoublyLinkedList {
    private Node head;
    private Node tail;
+   public int nodes = 0;
     
    public DoublyLinkedList() {
       head = null;
@@ -36,6 +37,8 @@ public class DoublyLinkedList {
          newNode.previous = tail;
          tail = newNode;
       }
+      
+      nodes++;
    }
    
    public void prepend(Node newNode) {
@@ -48,6 +51,8 @@ public class DoublyLinkedList {
          head.previous = newNode;
          head = newNode;
       }
+      
+      nodes++;
    }
    
    public void printList() {
@@ -57,6 +62,15 @@ public class DoublyLinkedList {
          node = node.next;
       }
       System.out.println();
+   }
+   
+   public void printRevList(){
+       Node node = tail;
+       while (node != null) {
+           System.out.print(node.data + " ");
+           node = node.previous;
+       }
+       System.out.println();
    }
    
    public void insertAfter(Node currentNode, Node newNode) {
@@ -76,6 +90,8 @@ public class DoublyLinkedList {
          currentNode.next = newNode;
          successor.previous = newNode;
       }
+      
+      nodes++;
    }
    
    public void remove(Node currentNode) {
@@ -93,5 +109,18 @@ public class DoublyLinkedList {
          
       if (currentNode == tail)
          tail = predecessor;
+      
+      nodes--;
+   }
+   
+   public int size() {
+       return nodes;
+       
+       /*while (node != null) {
+           nodes += 1;
+           node = node.next;
+       }*/
+       
    }
 }
+
